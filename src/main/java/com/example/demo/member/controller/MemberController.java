@@ -1,5 +1,6 @@
 package com.example.demo.member.controller;
 
+import com.example.demo.common.consts.Const;
 import com.example.demo.member.dto.request.MemberUpdateRequestDto;
 import com.example.demo.member.dto.response.MemberResponseDto;
 import com.example.demo.member.service.MemberService;
@@ -25,13 +26,18 @@ public class MemberController {
         return ResponseEntity.ok(memberService.findById(memberId));
     }
 
-    @PutMapping("/members/{memberId}")
-    public void update(@PathVariable Long memberId, @RequestBody MemberUpdateRequestDto dto) {
+    @PutMapping("/members")
+    public void update(
+            @SessionAttribute(name = Const.LOGIN_Member) Long memberId,
+            @RequestBody MemberUpdateRequestDto dto
+    ) {
         memberService.update(memberId, dto);
     }
 
     @DeleteMapping("/members/{memberId}")
-    public void delete(@PathVariable Long memberId) {
+    public void delete(
+            @SessionAttribute(name = Const.LOGIN_Member) Long memberId
+    ) {
         memberService.deleteById(memberId);
     }
 }
