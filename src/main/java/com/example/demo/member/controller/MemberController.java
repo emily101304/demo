@@ -28,7 +28,7 @@ public class MemberController {
 
     @PutMapping("/members")
     public void update(
-            @SessionAttribute(name = Const.LOGIN_Member) Long memberId,
+            @SessionAttribute(name = Const.LOGIN_MEMBER) Long memberId,
             @RequestBody MemberUpdateRequestDto dto
     ) {
         memberService.update(memberId, dto);
@@ -36,7 +36,7 @@ public class MemberController {
 
     @DeleteMapping("/members/{memberId}")
     public void delete(
-            @SessionAttribute(name = Const.LOGIN_Member) Long memberId
+            @SessionAttribute(name = Const.LOGIN_MEMBER) Long memberId
     ) {
         memberService.deleteById(memberId);
     }

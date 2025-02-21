@@ -23,7 +23,7 @@ public class LoginFilter implements Filter {
         // 화이트리스트에 포함되지 않은 경우, 로그인 여부 확인
         if (!isWhiteList(requestURI)) {
             HttpSession session = httpRequest.getSession(false);
-            if (session == null || session.getAttribute("LOGIN_USER") == null) {
+            if (session == null || session.getAttribute("LOGIN_MEMBER") == null) {
                 httpResponse.sendError(HttpServletResponse.SC_UNAUTHORIZED, "로그인 해주세요.");
                 return;
             }
