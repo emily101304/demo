@@ -1,4 +1,4 @@
-### Spring Session Assignment
+## Spring Session Assignment API🌿
 
 
 ## 1. 회원가입
