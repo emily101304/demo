@@ -1,9 +1,7 @@
 package com.example.demo.member.controller;
 
-import com.example.demo.member.dto.request.MemberSaveRequestDto;
 import com.example.demo.member.dto.request.MemberUpdateRequestDto;
 import com.example.demo.member.dto.response.MemberResponseDto;
-import com.example.demo.member.dto.response.MemberSaveResponseDto;
 import com.example.demo.member.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -16,11 +14,6 @@ import java.util.List;
 public class MemberController {
 
     private final MemberService memberService;
-
-    @PostMapping("/members")
-    public ResponseEntity<MemberSaveResponseDto> save(@PathVariable MemberSaveRequestDto dto) {
-        return ResponseEntity.ok(memberService.save(dto));
-    }
 
     @GetMapping("/members")
     public ResponseEntity<List<MemberResponseDto>> getAll() {

@@ -1,9 +1,7 @@
 package com.example.demo.member.service;
 
-import com.example.demo.member.dto.request.MemberSaveRequestDto;
 import com.example.demo.member.dto.request.MemberUpdateRequestDto;
 import com.example.demo.member.dto.response.MemberResponseDto;
-import com.example.demo.member.dto.response.MemberSaveResponseDto;
 import com.example.demo.member.entity.Member;
 import com.example.demo.member.repository.MemberRepository;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,16 +14,6 @@ import java.util.List;
 public class MemberService {
 
     private final MemberRepository memberRepository;
-
-    @Transactional
-    public MemberSaveResponseDto save(MemberSaveRequestDto dto) {
-        Member member = new Member(dto.getEmail());
-        Member savedMember = memberRepository.save(member);
-        return new MemberSaveResponseDto(
-                savedMember.getId(),
-                savedMember.getEmail()
-        );
-    }
 
     @Transactional(readOnly = true)
     public List<MemberResponseDto> findAll() {
